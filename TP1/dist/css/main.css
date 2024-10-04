@@ -244,5 +244,12 @@ textarea {
     }
   }
 }
+@layer components {
+  .bioCard {
+    width: 20rem;
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
