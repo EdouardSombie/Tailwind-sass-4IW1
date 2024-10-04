@@ -1,0 +1,10 @@
+@use "fonts" as f;
+@layer globals {
+	body {
+		font-family: f.$font1;
+	}
+
+	img {
+		max-width: 100%;
+	}
+}

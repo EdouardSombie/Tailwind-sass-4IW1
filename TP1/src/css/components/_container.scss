@@ -1,0 +1,13 @@
+@use "../partials/variables" as v;
+@layer components {
+	.container {
+		padding: 0 1rem;
+		margin: auto;
+
+		@each $name, $size in v.$breakpoints {
+			@media screen and (min-width: $size) {
+				max-width: calc($size - 2rem);
+			}
+		}
+	}
+}
