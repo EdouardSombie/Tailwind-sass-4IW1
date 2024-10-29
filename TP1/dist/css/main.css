@@ -177,6 +177,8 @@ textarea {
     --orange-light: #ffb993;
     --green: #00d5d5;
     --green-light: #2fffff;
+    --lime: #00ffc2;
+    --lime-light: #4dffd4;
   }
   body {
     font-family: "Istok Web", sans-serif;
@@ -262,10 +264,123 @@ textarea {
 }
 @layer components {
   .bioCard {
+    color: var(--blue);
     width: 20rem;
     border-radius: 1rem;
     padding: 2rem;
     background-color: var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .bioCard > * {
+    margin-top: 0;
+  }
+  .bioCard__header {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0;
+  }
+  .bioCard__img {
+    filter: saturate(0);
+    margin-bottom: 1.5rem;
+    width: 11rem;
+    aspect-ratio: 1/1;
+    border-radius: 10000px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .bioCard__h1 {
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    background: linear-gradient(to bottom, var(--pink) 0%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bioCard__h2 {
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .bioCard__hr {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-color: var(--blue);
+  }
+  .bioCard__p {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: normal;
+  }
+  .bioCard__ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+  }
+  .bioCard__a {
+    width: 2rem;
+    display: flex;
+    aspect-ratio: 1/1;
+    border-radius: 10000px;
+    background: var(--white);
+  }
+  .bioCard__a svg {
+    margin: auto;
+    height: 1rem;
+    width: auto;
+  }
+  .bioCard__a svg path {
+    fill: var(--pink);
+  }
+  .bioCard__a--alt {
+    width: 2rem;
+    display: flex;
+    aspect-ratio: 1/1;
+    border-radius: 10000px;
+    background: linear-gradient(to bottom, var(--lime) 0%, var(--green) 100%);
+  }
+  .bioCard__a--alt svg {
+    margin: auto;
+    height: 1rem;
+    width: auto;
+    height: 1.5rem;
+  }
+  .bioCard__a--alt svg path {
+    fill: var(--black);
+  }
+  .bioCard__footer {
+    position: relative;
+    width: 100%;
+  }
+  .bioCard__footer::before {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    left: -2rem;
+    right: -2rem;
+    bottom: -3.5rem;
+    background: linear-gradient(-187deg, var(--orange) 0%, var(--pink) 60%);
+    transform: skewY(7deg);
   }
 }
 

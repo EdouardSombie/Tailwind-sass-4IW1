@@ -1,0 +1,49 @@
+@use "functions" as f;
+
+@mixin flexbox($direction, $wrap, $justify, $align, $gap: 0) {
+	display: flex;
+	flex-direction: $direction;
+	flex-wrap: $wrap;
+	justify-content: $justify;
+	align-items: $align;
+	gap: $gap;
+}
+
+@mixin roundImage($width: 4rem) {
+	width: $width;
+	aspect-ratio: 1/1;
+	border-radius: 10000px;
+	object-fit: cover;
+	object-position: center;
+}
+
+@mixin textGradient($direction, $startColor, $endColor) {
+	background: linear-gradient(to $direction, $startColor 0%, $endColor 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+@mixin resetList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+@mixin pillButton($background, $color, $bigIcon: false) {
+	width: f.rem(32);
+	display: flex;
+	aspect-ratio: 1/1;
+	border-radius: 10000px;
+	background: $background;
+	svg {
+		margin: auto;
+		height: f.rem(16);
+		width: auto;
+		@if ($bigIcon) {
+			height: f.rem(24);
+		}
+		path {
+			fill: $color;
+		}
+	}
+}

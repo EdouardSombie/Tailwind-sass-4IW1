@@ -1,9 +1,82 @@
 @use "../partials/functions" as f;
+@use "../partials/mixins" as m;
 @layer components {
 	.bioCard {
+		// variables locales
+		$padding: f.rem(32);
+		color: var(--blue);
 		width: f.rem(320);
 		border-radius: f.rem(16);
-		padding: f.rem(32);
+		padding: $padding;
 		background-color: var(--dark-blue);
+		@include m.flexbox(column, nowrap, flex-start, center);
+		position: relative;
+		overflow: hidden;
+		// Elements
+		& > * {
+			margin-top: 0;
+		}
+		&__header {
+			position: absolute;
+			top: f.rem(16);
+			left: f.rem(16);
+			right: f.rem(16);
+			@include m.flexbox(row, nowrap, flex-end, center);
+		}
+		&__img {
+			filter: saturate(0);
+			margin-bottom: f.rem(24);
+			@include m.roundImage(f.rem(176));
+		}
+		&__h1 {
+			margin-bottom: f.rem(12);
+			font-size: f.rem(24);
+			@include m.textGradient(bottom, var(--pink), var(--orange));
+		}
+		&__h2 {
+			font-weight: 400;
+			font-size: f.rem(20);
+			margin-bottom: f.rem(24);
+		}
+		&__hr {
+			width: 100%;
+			margin-bottom: f.rem(16);
+			border-color: var(--blue);
+		}
+		&__p {
+			font-size: f.rem(16);
+			text-align: center;
+			margin-bottom: f.rem(48);
+			line-height: normal;
+		}
+		&__ul {
+			@include m.resetList;
+			@include m.flexbox(row, wrap, center, center, f.rem(24));
+			position: relative;
+		}
+		&__a {
+			@include m.pillButton(var(--white), var(--pink));
+			&--alt {
+				@include m.pillButton(
+					linear-gradient(to bottom, var(--lime) 0%, var(--green) 100%),
+					var(--black),
+					true
+				);
+			}
+		}
+		&__footer {
+			position: relative;
+			width: 100%;
+			&::before {
+				content: "";
+				position: absolute;
+				top: f.rem(-32);
+				left: f.rem(-32);
+				right: f.rem(-32);
+				bottom: f.rem(-56);
+				background: linear-gradient(-187deg, var(--orange) 0%, var(--pink) 60%);
+				transform: skewY(7deg);
+			}
+		}
 	}
 }
