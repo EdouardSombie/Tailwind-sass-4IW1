@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    svg {
+      @apply m-auto h-4 fill-pink-500;
+    }
+    @apply flex aspect-square w-8 rounded-full bg-white;
+  }
+  .btn-alt {
+    svg {
+      @apply h-6 fill-black;
+    }
+    @apply bg-gradient-to-b from-cyan-200 to-teal-400;
+  }
+}
